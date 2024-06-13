@@ -1,0 +1,77 @@
+order class
+#order has many reviews
+#order belongs to a customer
+#reviews belong to an order
+# id is an integer and a primary-key
+# order_item is a string and can be changed
+#price is an integer and cannot be changed.
+# customer_id is an integer and cannot be changed foreign key that references customer table
+
+#methods:
+#__init__(self, id, order_item, price, customer_id)
+#__repr__(self)
+#create orders table
+#create_order(self, order_item, price, customer_id)
+#save_order(self)
+#update_order(self, id, order_item)
+#drop_table_orders(self)
+#delete_order(self, id)
+
+#aggregate methods;
+#instance_from_db(cls, row)
+#get_all(cls)
+#get_by_id(cls, id)
+#get_by_order_item(cls, order_item)
+#orders(self, date) return a total sales of certain day
+
+customer class
+#customer has many orders
+#order belongs to a customer
+#customer has name and payment_method
+#customer can review an order
+#the name must be a string and cannot be changed.
+#id should be an integer and cannot be changed
+#payment_method should be a string and can be changed
+
+#methods:
+#__init__(self, name, payment_method, id =None)
+#__repr__(self)
+#create customer table
+#create_customer(self, name, payment_method)
+#save_customer(self)
+#update_user(self, payment_method, id)
+#drop_table_customers(self)
+#delete_customer(self, id)
+
+#aggregate methods;
+#instance_from_db(cls, row)
+#get_all(cls)
+#get_by_id(cls, id)
+#get_by_name(cls, name)
+#customerss(self) return a list of customers
+
+review class
+#a review belongs to an order
+#a review has a name, id , text, order_id
+# the name must be in the customers table(foreign-key)
+#name should be a string and connot be changed should be a foreign key
+#id should be an integer and cannot be changed
+#customer_id should be an integer and cannot be changed should be a foreign key
+#review should be a string and can be changed
+
+#methods:
+#__init__(self, id, username, content, order_id)
+#__repr__(self)
+#create reviewss table
+#create_review(self, username, content, order_id)
+#save_review(self)
+#update_review(self, id, content)
+#drop_table_reviews(self)
+#delete_review(self, id)
+
+#aggregate methods;
+#instance_from_db(cls, row)
+#get_all(cls)
+#get_by_id(cls, id)
+#get_by_username(cls, username)
+#reviews(self) returns a list of positive, negative or neutral comments
