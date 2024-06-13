@@ -136,6 +136,5 @@ class Order:
         
         sales= CONN.execute(sql, (date,)).fetchall()
         totalsales = sum(sale[0] for sale in sales)
-
         return totalsales
-    
+

@@ -93,8 +93,8 @@ def customer():
         else:
             print("Invalid option")
 def admin():
-    print("===========================================OPTIONs=====================================================")
     while True:
+        print("========================================OPTIONs=======================================================")
         print("                                     --1 --Find customer by id")
         print("                                     --2 --Find customer by name")
         print("                                     --3 --Delete customer")

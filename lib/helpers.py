@@ -28,8 +28,8 @@ def create_order():
     try:
         order = Order.create(coffee, int(customer_id_))
         print(f"Order created: {order}")
-    except Exception as e:
-        print(f"Error creating order: {e}")
+    except Exception:
+        print(f"Error creating order: customer {customer_id_} not found")
 
 def update_order():
     id = input("Enter id: ").strip()
@@ -46,7 +46,7 @@ def update_order():
             order.update()
             print(f"Order updated: {order}")
         except Exception as e:
-            print(f"Error updating order: {e}")
+            print(f"Error: Order {id} not found")
     else:
         print(f"Order with ID {id} not found.")
 
@@ -100,8 +100,8 @@ def create_comment():
     try:
         comment = Comment.create(username, content, int(order_id))
         print(f"Comment created: {comment}")
-    except Exception as e:
-        print(f"Error creating comment: {e}")
+    except Exception:
+        print(f"Error creating comment: Order {order_id} not found")
 
 def update_comment():
     id = input("Enter id: ").strip()
@@ -117,8 +117,8 @@ def update_comment():
             comment.content = content
             comment.update_comment()
             print(f"Comment updated: {comment}")
-        except Exception as e:
-            print(f"Error updating comment: {e}")
+        except Exception:
+            print(f"Error updating comment: Comment {id} not found")
     else:
         print(f"Comment with ID {id} not found.")
 
@@ -131,8 +131,8 @@ def delete_comment():
         try:
             comment.delete_comment(id_)
             print(f"Comment with ID {id_} deleted.")
-        except Exception as e:
-            print(f"Error deleting comment: {e}")
+        except Exception:
+            print(f"Error deleting comment {id} not found")
     else:
         print(f"Comment with ID {id_} not found.")
 
@@ -215,8 +215,8 @@ def create_customer():
     try:
         user = Customer.create_user(name, payment_method)
         print(f"User created: {user}")
-    except Exception as e:
-        print(f"Error creating user: {e}")
+    except Exception:
+        print(f"Error creating user")
 
 def update_customer():
     id = input("Enter id: ").strip()
@@ -233,8 +233,8 @@ def update_customer():
             customer.payment_method = payment_method
             customer.update()
             print(f"User updated: {customer}")
-        except Exception as e:
-            print(f"Error updating customer: {e}")
+        except Exception:
+            print(f"Error updating customer: customer {id} not found")
     else:
         print(f"Customer with ID {id} not found")
 
@@ -247,8 +247,8 @@ def delete_customer():
         try:
             customer.delete()
             print(f"Customer {customer.name} deleted")
-        except Exception as e:
-            print(f"Error deleting customer: {e}")
+        except Exception:
+            print(f"Error deleting customer: {id_} not found")
     else:
         print(f"Customer with ID {id_} not found")
 
@@ -270,7 +270,7 @@ def find_customer_by_username():
         try:
             print(user)
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"Error: {name} not found")
     else:
         print(f"Customer with username {name} not found")
 
@@ -284,5 +284,5 @@ def total_sales():
     try:
         sales = Order.total_sales(date)
         print(f"Total sales on {date}: ${float(sales):.2f}")
-    except Exception as e:
-        print(f"Error calculating total sales: {e}")
+    except Exception:
+        print(f"Error calculating total sales")
