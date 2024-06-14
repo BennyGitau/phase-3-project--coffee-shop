@@ -34,4 +34,4 @@ def reset_database():
     Comment.create('Bob', 'waste of money', order5.id)
     Comment.create('Bob', 'not as expected', order6.id)
 
-reset_database()
+

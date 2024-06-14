@@ -3,6 +3,7 @@
 
 import fire
 from models.__init__ import CONN,CURSOR
+from seed import reset_database
 from helpers import (
     exit_program,
     clear,
@@ -25,6 +26,7 @@ from helpers import (
     total_sales
     
 )
+reset_database()
 
 
 def help():

@@ -55,13 +55,11 @@ To set up and install the Coffee Shop program, follow these steps:
 6. **Run the Program**:
     - To start the program:
         ```sh
-        ./lib/seed.py
         ./lib/cli.py
         ```
 
    If you encounter a "permission denied" error, run:
     ```sh
-    chmod +x lib/seed.py
     chmod +x lib/cli.py
     ```
 
